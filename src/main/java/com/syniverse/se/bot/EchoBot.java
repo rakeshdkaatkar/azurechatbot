@@ -44,7 +44,7 @@ public class EchoBot extends ActivityHandler {
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
             echoMsg = "Echo: " + turnContext.getActivity().getText() + turnContext.getActivity().getAttachments().get(0).getName();
             return turnContext.sendActivity(
-                    MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getContentUrl())
+                    MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
             ).thenApply(sendResult -> null);
         } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
