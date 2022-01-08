@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.syniverse.se.bot</groupId>
-    <artifactId>syn-dev-echobot</artifactId>
+    <artifactId>syn-optimus-dev-echobot</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
