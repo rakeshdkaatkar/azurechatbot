@@ -32,7 +32,7 @@ public class EchoBot extends ActivityHandler {
     protected CompletableFuture<Void> onMessageActivity(TurnContext turnContext) {
         LOGGER.info("\n");
         LOGGER.info(">>>> NEW onMessageActivity event");
-        LOGGER.info("activityId:{}", turnContext.getActivity().getId());
+        LOGGER.info("activityId:{}", turnContext.getActivity().getType());
         LOGGER.info("Conversation:{}", turnContext.getActivity().getConversation().toString());
         LOGGER.info("channelId:{}", turnContext.getActivity().getChannelId());
         LOGGER.info("recipientId:{}", turnContext.getActivity().getRecipient().getId());
@@ -43,18 +43,26 @@ public class EchoBot extends ActivityHandler {
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
             echoMsg = "Echo: " + turnContext.getActivity().getText() + turnContext.getActivity().getAttachments().get(0).getName();
-        } else {
+            return turnContext.sendActivity(
+                    MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getContentUrl())
+            ).thenApply(sendResult -> null);
+        } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
-
+            LOGGER.info(">>> Replying with message: {}", echoMsg);
+            return turnContext.sendActivity(
+                    MessageFactory.text("Echo:" + turnContext.getActivity().getText())
+            ).thenApply(sendResult -> null);
         }
-        LOGGER.info(">>> Replying with message: {}", echoMsg);
+        else{
+            return turnContext.sendActivity(
+                    MessageFactory.text(" Something Went wrong")
+            ).thenApply(sendResult -> null);
+        }
+
         //turnContext.getActivity().getAttachments().get(0).getName();
         //String echoMsg = "Echo: " + turnContext.getActivity().getText() + turnContext.getActivity().getAttachments().get(0).getName();
         //LOGGER.info(">>> Replying with message: {}",echoMsg);
 
-        return turnContext.sendActivity(
-                MessageFactory.text(echoMsg)
-        ).thenApply(sendResult -> null);
     }
 
     @Override
