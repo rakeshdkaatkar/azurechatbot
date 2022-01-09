@@ -3,6 +3,8 @@
 
 package com.syniverse.se.bot;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.bot.builder.ActivityHandler;
 import com.microsoft.bot.builder.MessageFactory;
 import com.microsoft.bot.builder.TurnContext;
@@ -42,18 +44,24 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
-            echoMsg = "Echo: " + turnContext.getActivity().getText() + turnContext.getActivity().getAttachments().get(0).getName();
-            return turnContext.sendActivity(
-                    MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
-            ).thenApply(sendResult -> null);
+
+            try {
+                echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
+                return turnContext.sendActivity(
+                        MessageFactory.text(new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0)))
+                ).thenApply(sendResult -> null);
+            } catch (JsonProcessingException e) {
+                return turnContext.sendActivity(
+                        MessageFactory.text("Echo:" + turnContext.getActivity().getText())
+                ).thenApply(sendResult -> null);
+            }
         } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
             LOGGER.info(">>> Replying with message: {}", echoMsg);
             return turnContext.sendActivity(
                     MessageFactory.text("Echo:" + turnContext.getActivity().getText())
             ).thenApply(sendResult -> null);
-        }
-        else{
+        } else {
             return turnContext.sendActivity(
                     MessageFactory.text(" Something Went wrong")
             ).thenApply(sendResult -> null);
