@@ -46,6 +46,7 @@ public class EchoBot extends ActivityHandler {
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
 
             try {
+                LOGGER.info("response from bot: Echo: {}",  new ObjectMapper().writeValueAsString(turnContext.getActivity()));
                 echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
                 LOGGER.info(">>> Replying with message: {}",echoMsg);
                 return turnContext.sendActivity(
