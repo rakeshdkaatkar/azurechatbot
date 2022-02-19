@@ -50,7 +50,7 @@ public class EchoBot extends ActivityHandler {
                 echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
                 LOGGER.info(">>> Replying with message: {}",echoMsg);
                 return turnContext.sendActivity(
-                        MessageFactory.attachment(turnContext.getActivity().getAttachments())
+                        MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
                 ).thenApply(sendResult -> null);
             } catch (JsonProcessingException e) {
                 LOGGER.info(">>> Replying with message: {}",e.getMessage());
