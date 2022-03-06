@@ -45,19 +45,14 @@ public class EchoBot extends ActivityHandler {
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
 
-            try {
-                echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
-                LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
-                return turnContext.sendActivity(
-                        //MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
-                        MessageFactory.attachment(turnContext.getActivity().getAttachments())
-                ).thenApply(sendResult -> null);
-            } catch (JsonProcessingException e) {
-                LOGGER.info(">>> Replying with message: {}",e.getMessage());
-                return turnContext.sendActivity(
-                        MessageFactory.text("Echo:" + turnContext.getActivity().getText())
-                ).thenApply(sendResult -> null);
-            }
+
+            //echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
+            //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
+            return turnContext.sendActivity(
+                    //MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
+                    MessageFactory.attachment(turnContext.getActivity().getAttachments())
+            ).thenApply(sendResult -> null);
+            
         } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
             LOGGER.info(">>> Replying with message: {}", echoMsg);
