@@ -9,11 +9,13 @@ import com.microsoft.bot.builder.ActivityHandler;
 import com.microsoft.bot.builder.MessageFactory;
 import com.microsoft.bot.builder.TurnContext;
 import com.microsoft.bot.schema.Activity;
+import com.microsoft.bot.schema.Attachment;
 import com.microsoft.bot.schema.ChannelAccount;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -45,13 +47,18 @@ public class EchoBot extends ActivityHandler {
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
 
-
+            List<Attachment> aa = new ArrayList<>();
+            Attachment a = new Attachment();
+            a.setContentUrl(turnContext.getActivity().getAttachments().get(0).getContentUrl());
+            a.setContentType(turnContext.getActivity().getAttachments().get(0).getContentType());
+            a.setName(turnContext.getActivity().getAttachments().get(0).getName());
+            aa.add(a);
             //echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
             //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
             return turnContext.sendActivity(
-                    turnContext.getActivity()
+                    //turnContext.getActivity()
                     //MessageFactory.text(turnContext.getActivity().getAttachments().get(0).getName())
-                    //MessageFactory.attachment(turnContext.getActivity().getAttachments()).
+                    MessageFactory.attachment(aa)
             ).thenApply(sendResult -> null);
             
         } else if (turnContext.getActivity().getText() != null) {
