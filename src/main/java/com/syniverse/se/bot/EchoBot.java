@@ -46,42 +46,21 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
-            List<Attachment> aa = new ArrayList<>();
-            if(turnContext.getActivity().getAttachments().get(0).getContentType().contains("audio")){
-                Attachment a = new Attachment();
-                a.setContentUrl("https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3");
-                a.setContentType("audio/mp3");
-                a.setName("file_example_MP3_700KB.mp3");
-                aa.add(a);
-            } else if(turnContext.getActivity().getAttachments().get(0).getContentType().contains("video")){
-                Attachment a = new Attachment();
-                a.setContentUrl("https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4");
-                a.setContentType("video/mp4");
-                a.setName("file_example_MP4_480_1_5MG.mp4");
-                aa.add(a);
-            }
-            else if(turnContext.getActivity().getAttachments().get(0).getContentType().contains("image")){
-                Attachment a = new Attachment();
-                a.setContentUrl("https://file-examples-com.github.io/uploads/2017/10/file_example_PNG_500kB.png");
-                a.setContentType("image/png");
-                a.setName("file_example_PNG_500kB.png");
-                aa.add(a);
-            }
-            else {
-                Attachment a = new Attachment();
-                a.setContentUrl(turnContext.getActivity().getAttachments().get(0).getContentUrl());
-                a.setContentType(turnContext.getActivity().getAttachments().get(0).getContentType());
-                a.setName(turnContext.getActivity().getAttachments().get(0).getName());
-                aa.add(a);
-            }
+            List<Attachment> attachmentList = new ArrayList<>();
+            Attachment attachment = new Attachment();
+            attachment.setContentUrl(turnContext.getActivity().getAttachments().get(0).getContentUrl());
+            attachment.setContentType(turnContext.getActivity().getAttachments().get(0).getContentType());
+            attachment.setName(turnContext.getActivity().getAttachments().get(0).getName());
+            attachmentList.add(attachment);
+
             //echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
             //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
             return turnContext.sendActivity(
                     //turnContext.getActivity()
-                    MessageFactory.attachment(aa,turnContext.getActivity().getAttachments().get(0).getName(),"",null)
+                    MessageFactory.attachment(attachmentList, turnContext.getActivity().getAttachments().get(0).getName(), "", null)
                     //MessageFactory.attachment(aa)
             ).thenApply(sendResult -> null);
-            
+
         } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
             LOGGER.info(">>> Replying with message: {}", echoMsg);
