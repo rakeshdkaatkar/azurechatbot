@@ -37,6 +37,7 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("\n");
         LOGGER.info(">>>> NEW onMessageActivity event");
         LOGGER.info("activityId:{}", turnContext.getActivity().getId());
+        LOGGER.info("channelData:{}", turnContext.getActivity().getChannelData());
         LOGGER.info("Conversation:{}", turnContext.getActivity().getConversation().toString());
         LOGGER.info("channelId:{}", turnContext.getActivity().getChannelId());
         LOGGER.info("recipientId:{}", turnContext.getActivity().getRecipient().getId());
