@@ -50,56 +50,56 @@ public class EchoBot extends ActivityHandler {
                 for (int i = 0; i < 8; i++) {
                     switch (i) {
                         case 0:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("1")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("response from bot:" + "1");
                             break;
                         case 1:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("2")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("response from bot:" + "2");
                             break;
                         case 2:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("3")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("response from bot:" + "3");
                             break;
                         case 3:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("4")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("4");
                             break;
                         case 4:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("5")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("5");
                             break;
                         case 5:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("6")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("6");
                             break;
                         case 6:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("7")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("7");
                             break;
                         case 7:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("8")
                             ).thenApply(sendResult -> null);
@@ -112,35 +112,35 @@ public class EchoBot extends ActivityHandler {
                 for (int i = 0; i < 8; i++) {
                     switch (i) {
                         case 0:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("1 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("1");
                             break;
                         case 1:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("2 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("2");
                             break;
                         case 2:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("3 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("3");
                             break;
                         case 3:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("4 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("4");
                             break;
                         case 4:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("5 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
@@ -153,14 +153,14 @@ public class EchoBot extends ActivityHandler {
                             LOGGER.info("6");
                             break;
                         case 6:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("7 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("7");
                             break;
                         case 7:
-                            Thread.sleep(100);
+                            Thread.sleep(500);
                             turnContext.sendActivity(
                                     MessageFactory.text("8")
                             ).thenApply(sendResult -> null);
