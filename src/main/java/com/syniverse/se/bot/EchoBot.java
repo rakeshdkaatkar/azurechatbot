@@ -50,51 +50,51 @@ public class EchoBot extends ActivityHandler {
                 switch (i) {
                     case 0:
                         turnContext.sendActivity(
-                                MessageFactory.text("Hola Bienvenido")
+                                MessageFactory.text("1")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("response from bot:" + "Hola Bienvenido");
+                        LOGGER.info("response from bot:" + "1");
                         break;
                     case 1:
                         turnContext.sendActivity(
-                                MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds en que te puedo ayudar hoy?")
+                                MessageFactory.text("2")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("response from bot:" + "Yo soy tu asesora de Belleza personalized ponds en que te puedo ayudar hoy?");
+                        LOGGER.info("response from bot:" + "2");
                         break;
                     case 2:
                         turnContext.sendActivity(
-                                MessageFactory.text("Necesito tu selfie para el analisis")
+                                MessageFactory.text("3")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("response from bot:" + "Necesito tu selfie para el analisis");
+                        LOGGER.info("response from bot:" + "3");
                         break;
                     case 3:
                         turnContext.sendActivity(
-                                MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
+                                MessageFactory.text("4")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas");
+                        LOGGER.info("4");
                         break;
                     case 4:
                         turnContext.sendActivity(
-                                MessageFactory.text("Momento de la selfie")
+                                MessageFactory.text("5")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("Momento de la selfie");
+                        LOGGER.info("5");
                         break;
                     case 5:
                         turnContext.sendActivity(
-                                MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
+                                MessageFactory.text("6")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("Puedes tomarte una foto ahora o compartir una que tengas");
+                        LOGGER.info("6");
                         break;
                     case 6:
                         turnContext.sendActivity(
-                                MessageFactory.text("Haz click en el icono de tu camara")
+                                MessageFactory.text("7")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("Haz click en el icono de tu camara");
+                        LOGGER.info("7");
                         break;
                     case 7:
                         turnContext.sendActivity(
-                                MessageFactory.text("Si cambias de opinions")
+                                MessageFactory.text("8")
                         ).thenApply(sendResult -> null);
-                        LOGGER.info("Si cambias de opinions");
+                        LOGGER.info("8");
                         break;
                 }
 
@@ -104,59 +104,55 @@ public class EchoBot extends ActivityHandler {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            return turnContext.sendActivity(
-                    MessageFactory.text("Si cambias de opinions")
-            ).thenApply(sendResult -> null);
         }
         else if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@emoji_test")) {
             for (int i = 0; i < 8; i++) {
                 switch (i) {
                     case 0:
                         turnContext.sendActivity(
-                                MessageFactory.text("Hola Bienvenido")
+                                MessageFactory.text("1 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("1");
                         break;
                     case 1:
                         turnContext.sendActivity(
-                                MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds \uD83D\uDE4B\uD83C\uDFFC\u200D♀️ en que te puedo ayudar hoy?")
+                                MessageFactory.text("2 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("2");
                         break;
                     case 2:
                         turnContext.sendActivity(
-                                MessageFactory.text("Necesito tu selfie para el analisis")
+                                MessageFactory.text("3 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("3");
                         break;
                     case 3:
                         turnContext.sendActivity(
-                                MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
+                                MessageFactory.text("4 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("4");
                         break;
                     case 4:
                         turnContext.sendActivity(
-                                MessageFactory.text("Momento de la selfie ✌🏻")
+                                MessageFactory.text("5 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("5");
                         break;
                     case 5:
                         turnContext.sendActivity(
-                                MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
+                                MessageFactory.text("6 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("6");
                         break;
                     case 6:
                         turnContext.sendActivity(
-                                MessageFactory.text("Haz click en el icono de tu camara \uD83D\uDCF7")
+                                MessageFactory.text("7 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("7");
                         break;
                     case 7:
                         turnContext.sendActivity(
-                                MessageFactory.text("Si cambias de opinions")
+                                MessageFactory.text("8 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                         ).thenApply(sendResult -> null);
                         break;
                 }
@@ -169,9 +165,7 @@ public class EchoBot extends ActivityHandler {
                 e.printStackTrace();
             }
 
-            return turnContext.sendActivity(
-                    MessageFactory.text("Si cambias de opinions")
-            ).thenApply(sendResult -> null);
+
 
         }
         String echoMsg;
