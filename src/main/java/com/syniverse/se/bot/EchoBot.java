@@ -49,31 +49,31 @@ public class EchoBot extends ActivityHandler {
             for(int i = 0; i <8 ; i++){
                 switch (i){
                     case 0:
-                        return turnContext.sendActivity(
+                          turnContext.sendActivity(
                                 MessageFactory.text("Hola Bienvenido")
                         ).thenApply(sendResult -> null);
                     case 1:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds en que te puedo ayudar hoy?")
                         ).thenApply(sendResult -> null);
                     case 2:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Necesito tu selfie para el analisis")
                         ).thenApply(sendResult -> null);
                     case 3:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
                         ).thenApply(sendResult -> null);
                     case 4:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Momento de la selfie")
                         ).thenApply(sendResult -> null);
                     case 5:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
                         ).thenApply(sendResult -> null);
                     case 6:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Haz click en el icono de tu camara")
                         ).thenApply(sendResult -> null);
                     case 7:
@@ -89,31 +89,31 @@ public class EchoBot extends ActivityHandler {
             for(int i = 0; i <8 ; i++){
                 switch (i){
                     case 0:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Hola Bienvenido")
                         ).thenApply(sendResult -> null);
                     case 1:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds \uD83D\uDE4B\uD83C\uDFFC\u200D♀️ en que te puedo ayudar hoy?")
                         ).thenApply(sendResult -> null);
                     case 2:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Necesito tu selfie para el analisis")
                         ).thenApply(sendResult -> null);
                     case 3:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
                         ).thenApply(sendResult -> null);
                     case 4:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Momento de la selfie ✌🏻")
                         ).thenApply(sendResult -> null);
                     case 5:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
                         ).thenApply(sendResult -> null);
                     case 6:
-                        return turnContext.sendActivity(
+                         turnContext.sendActivity(
                                 MessageFactory.text("Haz click en el icono de tu camara \uD83D\uDCF7")
                         ).thenApply(sendResult -> null);
                     case 7:
