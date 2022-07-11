@@ -99,6 +99,15 @@ public class EchoBot extends ActivityHandler {
                 }
 
             }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return turnContext.sendActivity(
+                    MessageFactory.text("Si cambias de opinions")
+            ).thenApply(sendResult -> null);
         }
         else if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@emoji_test")) {
             for (int i = 0; i < 8; i++) {
@@ -153,6 +162,17 @@ public class EchoBot extends ActivityHandler {
                 }
 
             }
+
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return turnContext.sendActivity(
+                    MessageFactory.text("Si cambias de opinions")
+            ).thenApply(sendResult -> null);
+
         }
         String echoMsg;
         if (turnContext.getActivity().getAttachments() != null && turnContext.getActivity().getAttachments().size() > 0) {
