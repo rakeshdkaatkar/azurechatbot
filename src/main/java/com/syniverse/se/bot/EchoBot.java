@@ -53,42 +53,49 @@ public class EchoBot extends ActivityHandler {
                                 MessageFactory.text("Hola Bienvenido")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("response from bot:" + "Hola Bienvenido");
+                        break;
                     case 1:
                         turnContext.sendActivity(
                                 MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds en que te puedo ayudar hoy?")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("response from bot:" + "Yo soy tu asesora de Belleza personalized ponds en que te puedo ayudar hoy?");
+                        break;
                     case 2:
                         turnContext.sendActivity(
                                 MessageFactory.text("Necesito tu selfie para el analisis")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("response from bot:" + "Necesito tu selfie para el analisis");
+                        break;
                     case 3:
                         turnContext.sendActivity(
                                 MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas");
+                        break;
                     case 4:
                         turnContext.sendActivity(
                                 MessageFactory.text("Momento de la selfie")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("Momento de la selfie");
+                        break;
                     case 5:
                         turnContext.sendActivity(
                                 MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("Puedes tomarte una foto ahora o compartir una que tengas");
+                        break;
                     case 6:
                         turnContext.sendActivity(
                                 MessageFactory.text("Haz click en el icono de tu camara")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("Haz click en el icono de tu camara");
+                        break;
                     case 7:
                         turnContext.sendActivity(
                                 MessageFactory.text("Si cambias de opinions")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("Si cambias de opinions");
-
+                        break;
                 }
 
             }
@@ -101,40 +108,48 @@ public class EchoBot extends ActivityHandler {
                                 MessageFactory.text("Hola Bienvenido")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("1");
+                        break;
                     case 1:
                         turnContext.sendActivity(
                                 MessageFactory.text("Yo soy tu asesora de Belleza personalized ponds \uD83D\uDE4B\uD83C\uDFFC\u200D♀️ en que te puedo ayudar hoy?")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("2");
+                        break;
                     case 2:
                         turnContext.sendActivity(
                                 MessageFactory.text("Necesito tu selfie para el analisis")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("3");
+                        break;
                     case 3:
                         turnContext.sendActivity(
                                 MessageFactory.text("Para obtener mejores resultados recoge tu Cabello hacia atras remueve tu maquullaje y tus gafas")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("4");
+                        break;
                     case 4:
                         turnContext.sendActivity(
                                 MessageFactory.text("Momento de la selfie ✌🏻")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("5");
+                        break;
                     case 5:
                         turnContext.sendActivity(
                                 MessageFactory.text("Puedes tomarte una foto ahora o compartir una que tengas")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("6");
+                        break;
                     case 6:
                         turnContext.sendActivity(
                                 MessageFactory.text("Haz click en el icono de tu camara \uD83D\uDCF7")
                         ).thenApply(sendResult -> null);
                         LOGGER.info("7");
+                        break;
                     case 7:
                         turnContext.sendActivity(
                                 MessageFactory.text("Si cambias de opinions")
                         ).thenApply(sendResult -> null);
+                        break;
                 }
 
             }
