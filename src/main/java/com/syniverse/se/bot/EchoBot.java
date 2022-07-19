@@ -3,8 +3,6 @@
 
 package com.syniverse.se.bot;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.bot.builder.ActivityHandler;
 import com.microsoft.bot.builder.MessageFactory;
 import com.microsoft.bot.builder.TurnContext;
@@ -31,6 +29,7 @@ import java.util.concurrent.CompletableFuture;
 public class EchoBot extends ActivityHandler {
     private static final Logger LOGGER = LogManager.getLogger(EchoBot.class.getName());
 
+    private static int DELAY = 2000;
 
     @Override
     protected CompletableFuture<Void> onMessageActivity(TurnContext turnContext) {
@@ -46,130 +45,145 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("text: {}", turnContext.getActivity().getText());
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         try {
-            if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@no_emoji")) {
+            if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
+                Attachment attachment = new Attachment();
+                attachment.setName("Test_Img.jpeg");
+                attachment.setContentUrl("https://azcbnepasstorageuat.blob.core.windows.net/images-demo/Test_Img.jpeg");
+                attachment.setContentType("image/jpeg");
+                turnContext.sendActivity(
+                        MessageFactory.attachment(attachment,"Get vouchers from your favourite brands\n")
+                ).thenApply(sendResult -> null);
+
+                Thread.sleep(DELAY);
+
+                turnContext.sendActivity(
+                        MessageFactory.text("Test Message After Attachment")
+                ).thenApply(sendResult -> null);
+            }
+
+            if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@text_test")) {
                 for (int i = 0; i < 8; i++) {
                     switch (i) {
                         case 0:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("1")
+                                    MessageFactory.text("Test Message 1")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("1");
                             break;
                         case 1:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("2")
+                                    MessageFactory.text("Test Message 2")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("2");
                             break;
                         case 2:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("3")
+                                    MessageFactory.text("Test Message 3")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("3");
                             break;
                         case 3:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("4")
+                                    MessageFactory.text("Test Message 4")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("4");
                             break;
                         case 4:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("5")
+                                    MessageFactory.text("Test Message 5")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("5");
                             break;
                         case 5:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("6")
+                                    MessageFactory.text("Test Message 6")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("6");
                             break;
                         case 6:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("7")
+                                    MessageFactory.text("Test Message 7")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("7");
                             break;
                         case 7:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("8")
+                                    MessageFactory.text("Test Message 8")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("8");
                             break;
                     }
 
                 }
-            } else if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@emoji_test")) {
+            } else if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@_test")) {
                 for (int i = 0; i < 8; i++) {
                     switch (i) {
                         case 0:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("1 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 1 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("1");
                             break;
                         case 1:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("2 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 2 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("2");
                             break;
                         case 2:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("3 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 3 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("3");
                             break;
                         case 3:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("4 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 4 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("4");
                             break;
                         case 4:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("5 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 5 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("5");
                             break;
                         case 5:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("6 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 6 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("6");
                             break;
                         case 6:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("7 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
+                                    MessageFactory.text("Emoji Test 7 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             LOGGER.info("7");
                             break;
                         case 7:
-                            Thread.sleep(1000);
+                            Thread.sleep(DELAY);
                             turnContext.sendActivity(
-                                    MessageFactory.text("8")
+                                    MessageFactory.text("Emoji Test  8 \uD83D\uDE4B\uD83C\uDFFC\u200D♀")
                             ).thenApply(sendResult -> null);
                             break;
                     }
 
                 }
-
 
 
                 return turnContext.sendActivity(
@@ -177,7 +191,7 @@ public class EchoBot extends ActivityHandler {
                 ).thenApply(sendResult -> null);
 
             }
-        }catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         String echoMsg;
