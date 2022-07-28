@@ -156,7 +156,7 @@ public class EchoBot extends ActivityHandler {
             //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
             return turnContext.sendActivity(
                     //turnContext.getActivity()
-                    MessageFactory.attachment(attachmentList, attachmentList.get(0).getName(), "", null)
+                    MessageFactory.attachment(attachmentList, turnContext.getActivity().getText(), "", null)
                     //MessageFactory.attachment(aa)
             ).thenApply(sendResult -> null);
 
