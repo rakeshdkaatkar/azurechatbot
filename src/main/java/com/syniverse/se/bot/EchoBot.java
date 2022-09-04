@@ -46,12 +46,17 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         try {
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
+                List<Attachment> attachmentList = new ArrayList<>();
+
                 Attachment attachment = new Attachment();
                 attachment.setName("Test_Img.jpeg");
                 attachment.setContentUrl("https://azcbnepasstorageuat.blob.core.windows.net/images-demo/Test_Img.jpeg");
                 attachment.setContentType("image/jpeg");
+                attachmentList.add(attachment);
                 turnContext.sendActivity(
-                        MessageFactory.attachment(attachment, "Get vouchers from your favourite brands\n")
+                        //turnContext.getActivity()
+                        MessageFactory.attachment(attachmentList, "Sample Text", "", null)
+                        //MessageFactory.attachment(aa)
                 ).thenApply(sendResult -> null);
 
                 Thread.sleep(DELAY);
@@ -151,6 +156,7 @@ public class EchoBot extends ActivityHandler {
             attachment.setContentType(turnContext.getActivity().getAttachments().get(0).getContentType());
             attachment.setName(turnContext.getActivity().getAttachments().get(0).getName());
             attachmentList.add(attachment);
+
 
             //echoMsg = "Echo: " + new ObjectMapper().writeValueAsString(turnContext.getActivity().getAttachments().get(0));
             //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
