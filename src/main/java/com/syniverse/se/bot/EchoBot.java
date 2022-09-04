@@ -45,6 +45,34 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("text: {}", turnContext.getActivity().getText());
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         try {
+
+
+            if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@unilever_test")) {
+
+                turnContext.sendActivity(
+                        MessageFactory.text("Test Message")
+                ).thenApply(sendResult -> null);
+
+                Thread.sleep(DELAY);
+
+                List<Attachment> attachmentList = new ArrayList<>();
+
+                Attachment attachment = new Attachment();
+                attachment.setName("Test_Img.jpeg");
+                attachment.setContentUrl("https://azcbnepasstorageuat.blob.core.windows.net/images-demo/Test_Img.jpeg");
+                attachment.setContentType("image/jpeg");
+                attachmentList.add(attachment);
+                turnContext.sendActivity(
+                        //turnContext.getActivity()
+                        MessageFactory.attachment(attachmentList, "Sample Text", "", null)
+                        //MessageFactory.attachment(aa)
+                ).thenApply(sendResult -> null);
+                Thread.sleep(DELAY);
+
+                return turnContext.sendActivity(
+                        MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=button_sample:lang=en_US\")#set(Rakesh)#set($quick_reply=YES)#set($quick_reply=NO)")
+                ).thenApply(sendResult -> null);
+            }
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
                 List<Attachment> attachmentList = new ArrayList<>();
 
