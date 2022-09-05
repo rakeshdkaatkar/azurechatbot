@@ -7,9 +7,34 @@
       <option name="url" value="https://botbuilder.myget.org/F/botbuilder-v4-java-daily/maven/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="scg-maven" />
+      <option name="name" value="scg-maven" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/scg-maven" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="vader-repo" />
+      <option name="name" value="vader-repo" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/vader-repo/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="eis-dev" />
+      <option name="name" value="eis-dev" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/eis-dev/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="syniverse-imn-repo" />
+      <option name="name" value="syniverse-imn-repo" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/syn-imn-repo" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="scg-repo" />
+      <option name="name" value="scg-repo" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/scg-repo" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -20,6 +45,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="confluent-proxy" />
+      <option name="name" value="confluent-proxy" />
+      <option name="url" value="https://nexusrm.syniverse.com/repository/confluent-proxy" />
     </remote-repository>
   </component>
 </project>

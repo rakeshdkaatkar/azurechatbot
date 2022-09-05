@@ -72,6 +72,12 @@ public class EchoBot extends ActivityHandler {
                 ).thenApply(sendResult -> null);
                 Thread.sleep(DELAY);
 
+                turnContext.sendActivity(
+                        MessageFactory.text("Test Message")
+                ).thenApply(sendResult -> null);
+
+
+                Thread.sleep(DELAY);
                 return turnContext.sendActivity(
                         MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=button_sample:lang=en_US\")#set(Rakesh)#set($quick_reply=YES)#set($quick_reply=NO)")
                 ).thenApply(sendResult -> null);
