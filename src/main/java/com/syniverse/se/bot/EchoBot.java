@@ -48,7 +48,10 @@ public class EchoBot extends ActivityHandler {
 
 
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@unilever_test")) {
-
+                 String delay[] = turnContext.getActivity().getText().split(":");
+                 if(delay!=null && delay.length >=2){
+                     DELAY = Integer.valueOf(delay[1]);
+                 }
                 turnContext.sendActivity(
                         MessageFactory.text("Test Message")
                 ).thenApply(sendResult -> null);
@@ -89,7 +92,7 @@ public class EchoBot extends ActivityHandler {
 
                 Thread.sleep(DELAY);
 
-                turnContext.sendActivity(
+                return turnContext.sendActivity(
                         MessageFactory.text("Test Message After Attachment")
                 ).thenApply(sendResult -> null);
             }
