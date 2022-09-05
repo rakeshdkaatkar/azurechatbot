@@ -52,12 +52,17 @@ public class EchoBot extends ActivityHandler {
                  if(delay!=null && delay.length >=2){
                      DELAY = Integer.valueOf(delay[1]);
                  }
+
+                LOGGER.info("Sending Text Message");
                 turnContext.sendActivity(
                         MessageFactory.text("Test Message")
                 ).thenApply(sendResult -> null);
 
+                LOGGER.info("Text message sent");
+
                 Thread.sleep(DELAY);
 
+                LOGGER.info("Sending Image with caption");
                 List<Attachment> attachmentList = new ArrayList<>();
 
                 Attachment attachment = new Attachment();
@@ -70,17 +75,15 @@ public class EchoBot extends ActivityHandler {
                         MessageFactory.attachment(attachmentList, "Sample Text", "", null)
                         //MessageFactory.attachment(aa)
                 ).thenApply(sendResult -> null);
+                LOGGER.info("Image with caption sent");
                 Thread.sleep(DELAY);
+
+                LOGGER.info("Sending Template  with action button");
 
                 turnContext.sendActivity(
-                        MessageFactory.text("Test Message")
-                ).thenApply(sendResult -> null);
-
-
-                Thread.sleep(DELAY);
-                return turnContext.sendActivity(
                         MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=button_sample:lang=en_US\")#set(Rakesh)#set($quick_reply=YES)#set($quick_reply=NO)")
                 ).thenApply(sendResult -> null);
+                LOGGER.info("Template sent");
             }
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
                 List<Attachment> attachmentList = new ArrayList<>();
