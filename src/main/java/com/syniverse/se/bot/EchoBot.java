@@ -85,7 +85,9 @@ public class EchoBot extends ActivityHandler {
                 ).thenApply(sendResult -> null);
 
                 Thread.sleep(DELAY);
-                return null;
+                return turnContext.sendActivity(
+                        MessageFactory.text("")
+                ).thenApply(sendResult -> null);
                // LOGGER.info("Template sent");
             }
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
