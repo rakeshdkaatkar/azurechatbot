@@ -80,10 +80,10 @@ public class EchoBot extends ActivityHandler {
 
                 LOGGER.info("Sending Template  with action button");
 
-                turnContext.sendActivity(
+                return turnContext.sendActivity(
                         MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=button_sample:lang=en_US\")#set(Rakesh)#set($quick_reply=YES)#set($quick_reply=NO)")
                 ).thenApply(sendResult -> null);
-                LOGGER.info("Template sent");
+               // LOGGER.info("Template sent");
             }
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@image_test")) {
                 List<Attachment> attachmentList = new ArrayList<>();
