@@ -78,7 +78,7 @@ public class EchoBot extends ActivityHandler {
                 LOGGER.info("Image with caption sent");
                 Thread.sleep(DELAY);
 
-                LOGGER.info("Sending Template  with action button");
+                LOGGER.info("Sending Template  with action button ");
 
                 return turnContext.sendActivity(
                         MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=button_sample:lang=en_US\")#set(Rakesh)#set($quick_reply=YES)#set($quick_reply=NO)")
