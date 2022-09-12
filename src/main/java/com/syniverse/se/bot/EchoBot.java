@@ -45,7 +45,11 @@ public class EchoBot extends ActivityHandler {
         LOGGER.info("text: {}", turnContext.getActivity().getText());
         LOGGER.info("response from bot: Echo: {}", turnContext.getActivity().getText());
         try {
-
+            if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@unilever_template")) {
+                return turnContext.sendActivity(
+                        MessageFactory.text("#parse(\"whatsapp:ns=8b24c6b8_f5f2_268f_acec_5acebd0277dc:name=text_with_image:lang=en_US\")#set($header_img=\"https://azcbnepasstorageuat.blob.core.windows.net/images-demo/Test_Img.jpeg\")#set(John)")
+                ).thenApply(sendResult -> null);
+            }
 
             if (turnContext.getActivity().getText() != null && turnContext.getActivity().getText().contains("@unilever_test")) {
                  String delay[] = turnContext.getActivity().getText().split(":");
