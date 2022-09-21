@@ -211,13 +211,13 @@ public class EchoBot extends ActivityHandler {
             //LOGGER.info(">>> Replying with message: {}",echoMsg + turnContext.getActivity().getType());
             return turnContext.sendActivity(
                     //turnContext.getActivity()
-                    MessageFactory.attachment(attachmentList, turnContext.getActivity().getText(), "", null)
+                        MessageFactory.attachment(attachmentList, turnContext.getActivity().getText(), "", null)
                     //MessageFactory.attachment(aa)
             ).thenApply(sendResult -> null);
 
         } else if (turnContext.getActivity().getText() != null) {
             echoMsg = "Echo: " + turnContext.getActivity().getText();
-            LOGGER.info(">>> Replying with message: {}", echoMsg);
+            LOGGER.info(">>> Replying with echo message : {}", echoMsg);
             return turnContext.sendActivity(
                     MessageFactory.text("Echo:" + turnContext.getActivity().getText())
             ).thenApply(sendResult -> null);
